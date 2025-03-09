@@ -48,5 +48,5 @@ Below are the quality attributes ensuring system usability, security, performanc
 | Scalability   | The system shall be able to scale horizontally to handle increased load.                      |
 | Security      | All user data shall be encrypted using AES-256.                                               |
 | Security      | The system shall implement role-based access control (RBAC) for different user roles.         |
-| Performance   | Search results shall load within 2 seconds.                                                   |
+| Performance   | Search results shall load within 5 seconds.                                                   |
 | Performance   | The system shall process and send reminders within 1 minute of the scheduled time.            |
