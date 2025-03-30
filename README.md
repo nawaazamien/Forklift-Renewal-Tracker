@@ -11,3 +11,8 @@ The **Forklift License Renewal Tracker** is a web-based application designed to 
 - [TEST_AND_USE_CASE_DOCUMENT.md](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/TEST_AND_USE_CASE_DOCUMENT.md)
 - [REFLECTION.md](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/REFLECTION.md)
 - [AGILE_PLANNING_DOCUMENT.md](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/AGILE_PLANNING_DOCUMENT.md)
+
+## Assignment 7: Additional Files
+- [template_analysis.md](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/Assignment_7/template_analysis.md)
+- [kanban_explanation.md](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/Assignment_7/kanban_explanation.md)
+- [reflection.md](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/Assignment_7/reflection.md)
