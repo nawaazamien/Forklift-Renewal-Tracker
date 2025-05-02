@@ -135,3 +135,39 @@ console.log(allOperators);
 
 // Delete an operator
 operatorRepo.delete("1");
+
+### Storage-Abstraction Mechanism
+
+1. **Design**:
+   - The repository layer is decoupled from storage specifics using the **Factory Pattern**.
+   - A `RepositoryFactory` class is responsible for returning the appropriate repository implementation based on the entity type and storage type.
+
+2. **Factory Pattern**:
+   - The `RepositoryFactory` provides a centralized mechanism to create repositories.
+   - Currently, it supports in-memory storage (`MEMORY`) for `ForkliftOperator` and `License` entities.
+   - Future storage backends (e.g., `DATABASE`, `FILESYSTEM`) can be added without modifying the existing repository classes.
+
+3. **Extensibility**:
+   - The factory pattern allows for easy addition of new storage backends by extending the `RepositoryFactory` class.
+   - This ensures the application remains flexible and scalable.
+
+### Example Usage
+```javascript
+const RepositoryFactory = require("./factories/RepositoryFactory");
+
+// Get an in-memory repository for ForkliftOperator
+const operatorRepo = RepositoryFactory.getRepository("ForkliftOperator", "MEMORY");
+
+// Create a new operator
+operatorRepo.save({ operatorID: "1", name: "John Doe" });
+
+// Retrieve an operator by ID
+const operator = operatorRepo.findById("1");
+console.log(operator);
+
+// Retrieve all operators
+const allOperators = operatorRepo.findAll();
+console.log(allOperators);
+
+// Delete an operator
+operatorRepo.delete("1");
