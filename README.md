@@ -35,6 +35,18 @@ JavaScript was chosen for its simplicity and flexibility in implementing object-
 
 ---
 
+### Assignment 10: Additional Files
+- [SimpleFactory.js](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/Assignment_10/creational_patterns/SimpleFactory.js)
+- [FactoryMethod.js](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/Assignment_10/creational_patterns/FactoryMethod.js)
+- [AbstractFactory.js](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/Assignment_10/creational_patterns/AbstractFactory.js)
+- [Builder.js](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/Assignment_10/creational_patterns/Builder.js)
+- [Prototype.js](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/Assignment_10/creational_patterns/Prototype.js)
+- [Singleton.js](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/Assignment_10/creational_patterns/Singleton.js)
+- [creationalPatterns.test.js](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/Assignment_10/tests/creationalPatterns.test.js)
+- [CHANGELOG.md](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/Assignment_10/CHANGELOG.md)
+
+---
+
 ### How to Run Tests
 
 To run the tests and validate the implementation, follow these steps:
@@ -85,4 +97,41 @@ During testing, several issues were identified and resolved. Below is a summary 
 8. **[Bug] GUIFactory: Missing Render Method**
    - **Issue**: The `AbstractFactory` test failed because the `render()` method was not implemented for all button types.
    - **Fix**: Ensured that both `WindowsButton` and `MacOSButton` implement the `render()` method.
-```
+
+## Assignment 11: Implementing a Persistence Repository Layer
+
+### In-Memory Implementation
+1. **Design**:
+   - The repository layer uses an in-memory `Map` (HashMap) to store domain entities (`ForkliftOperator`, `License`).
+   - This approach is simple and efficient for testing and prototyping.
+
+2. **CRUD Operations**:
+   - Each repository supports standard CRUD operations:
+     - `save(entity)`: Adds or updates an entity in the repository.
+     - `findById(id)`: Retrieves an entity by its ID.
+     - `findAll()`: Retrieves all entities in the repository.
+     - `delete(id)`: Removes an entity by its ID.
+
+3. **Extensibility**:
+   - The in-memory implementation is designed to be easily replaceable with other storage backends (e.g., JSON files, databases).
+   - Future implementations can use Dependency Injection or Factory Pattern to switch between storage backends.
+
+### Example Usage
+```javascript
+const InMemoryForkliftOperatorRepository = require("./repositories/inmemory/InMemoryForkliftOperatorRepository");
+
+const operatorRepo = new InMemoryForkliftOperatorRepository();
+
+// Create a new operator
+operatorRepo.save({ operatorID: "1", name: "John Doe" });
+
+// Retrieve an operator by ID
+const operator = operatorRepo.findById("1");
+console.log(operator);
+
+// Retrieve all operators
+const allOperators = operatorRepo.findAll();
+console.log(allOperators);
+
+// Delete an operator
+operatorRepo.delete("1");
