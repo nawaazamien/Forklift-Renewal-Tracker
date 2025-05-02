@@ -19,8 +19,7 @@ The **Forklift License Renewal Tracker** is a web-based application designed to 
 - [reflection.md](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/Assignment_7/reflection.md)
 
 ## Assignment 9: Additional Files
-- [Domain_Model.md](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/Assignment_9/Domain_Model.md)
-- [CLASS_DIAGRAM.md](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/Assignment_9/CLASS_DIAGRAM.md)
+- [Domain_Model.md](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/Assignment_9/DOMAIN_MODEL_DOCUMENT.md)
 - [REFLECTION.md](https://github.com/nawaazamien/Forklift-Renewal-Tracker/blob/main/Assignment_9/REFLECTION.md)
 
 ## Assignment 10: From Class Diagrams to Code
@@ -208,3 +207,32 @@ const operatorRepo = RepositoryFactory.getRepository("ForkliftOperator", "FILESY
 
 // Save an operator (not yet implemented)
 operatorRepo.save({ operatorID: "1", name: "John Doe" });
+```
+
+## Assignment 12: Service Layer Implementation
+
+### Service Layer Design
+1. **ForkliftOperatorService**:
+   - Handles operations related to forklift operators, such as creating, retrieving, and deleting operators.
+   - Validates inputs to ensure operators have required attributes (e.g., ID, name).
+
+2. **LicenseService**:
+   - Manages licenses, including creating, retrieving, and renewing licenses.
+   - Ensures licenses have valid attributes (e.g., ID, issue date, expiry date).
+
+3. **ReminderService**:
+   - Sends reminders to forklift operators for expiring licenses.
+   - Includes logic to calculate days until license expiry and send reminders accordingly.
+
+### Example Usage
+```javascript
+const ForkliftOperatorService = require("./services/ForkliftOperatorService");
+const InMemoryForkliftOperatorRepository = require("./repositories/inmemory/InMemoryForkliftOperatorRepository");
+
+const operatorRepo = new InMemoryForkliftOperatorRepository();
+const operatorService = new ForkliftOperatorService(operatorRepo);
+
+operatorService.createOperator({ operatorID: "1", name: "John Doe", email: "john@example.com" });
+const operator = operatorService.getOperatorById("1");
+console.log(operator);
+```
