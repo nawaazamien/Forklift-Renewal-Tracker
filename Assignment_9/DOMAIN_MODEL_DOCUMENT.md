@@ -91,12 +91,43 @@ classDiagram
         +update(): void
     }
 
+    class Repository {
+        +save(entity)
+        +findById(id)
+        +findAll()
+        +delete(id)
+    }
+
+    class InMemoryForkliftOperatorRepository {
+        +save(operator)
+        +findById(operatorID)
+        +findAll()
+        +delete(operatorID)
+    }
+
+    class FileSystemForkliftOperatorRepository {
+        +save(operator)
+        +findById(operatorID)
+        +findAll()
+        +delete(operatorID)
+    }
+
+    class DatabaseForkliftOperatorRepository {
+        +save(operator)
+        +findById(operatorID)
+        +findAll()
+        +delete(operatorID)
+    }
+
     %% Relationships
     ForkliftOperator --> License : "1 owns 1"
     OperationsManager --> ForkliftOperator : "1 manages 1..*"
     OperationsManager --> ComplianceReport : "1 generates 1..*"
     Reminder --> ForkliftOperator : "1..* sent to 1"
     ITAdministrator --> System : "1 manages 1"
+    Repository <|-- InMemoryForkliftOperatorRepository
+    Repository <|-- FileSystemForkliftOperatorRepository
+    Repository <|-- DatabaseForkliftOperatorRepository
 ```
 
 ## 📝 Explanation of Key Design Decisions

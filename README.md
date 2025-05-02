@@ -135,7 +135,7 @@ console.log(allOperators);
 
 // Delete an operator
 operatorRepo.delete("1");
-
+```
 ### Storage-Abstraction Mechanism
 
 1. **Design**:
@@ -171,3 +171,40 @@ console.log(allOperators);
 
 // Delete an operator
 operatorRepo.delete("1");
+
+```
+## Future-Proofing the Repository Layer
+
+### Design for Extensibility
+1. **Repository Interfaces**:
+   - The repository layer is designed with a generic `Repository` interface that defines standard CRUD operations (`save`, `findById`, `findAll`, `delete`).
+   - This ensures consistency across all storage backends.
+
+2. **Current Implementations**:
+   - **In-Memory Repositories**: Use a `Map` for lightweight, fast storage during development and testing.
+
+3. **Future Storage Backends**:
+   - The system is designed to easily add new storage backends, such as:
+     - **Filesystem Repositories**: Store entities in JSON or XML files.
+     - **Database Repositories**: Use SQL or NoSQL databases for persistent storage.
+     - **External APIs**: Integrate with external REST APIs for distributed storage.
+
+4. **Factory Pattern**:
+   - The `RepositoryFactory` class abstracts the creation of repositories, making it easy to switch between storage backends without modifying the application logic.
+
+### Stub Implementations
+1. **DatabaseForkliftOperatorRepository**:
+   - A placeholder for a database-backed repository that will use a database connection to persist entities.
+
+2. **FileSystemForkliftOperatorRepository**:
+   - A placeholder for a filesystem-backed repository that will serialize entities to JSON files.
+
+### Example Usage
+```javascript
+const RepositoryFactory = require("./factories/RepositoryFactory");
+
+// Get a filesystem repository for ForkliftOperator (future implementation)
+const operatorRepo = RepositoryFactory.getRepository("ForkliftOperator", "FILESYSTEM");
+
+// Save an operator (not yet implemented)
+operatorRepo.save({ operatorID: "1", name: "John Doe" });
