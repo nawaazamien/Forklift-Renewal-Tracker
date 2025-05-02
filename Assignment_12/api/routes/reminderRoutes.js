@@ -6,6 +6,18 @@ const router = express.Router();
 const operatorRepo = new InMemoryForkliftOperatorRepository();
 const reminderService = new ReminderService(operatorRepo);
 
+/**
+ * @swagger
+ * /api/reminders/send:
+ *   post:
+ *     summary: Send reminders for expiring licenses
+ *     responses:
+ *       200:
+ *         description: Reminders sent successfully
+ *       500:
+ *         description: Internal server error
+ */
+
 // Send reminders for expiring licenses
 router.post("/send", (req, res) => {
   try {

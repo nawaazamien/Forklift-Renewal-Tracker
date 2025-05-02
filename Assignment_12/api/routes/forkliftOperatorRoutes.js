@@ -6,6 +6,49 @@ const router = express.Router();
 const operatorRepo = new InMemoryForkliftOperatorRepository();
 const operatorService = new ForkliftOperatorService(operatorRepo);
 
+/**
+ * @swagger
+ * /api/operators:
+ *   get:
+ *     summary: Fetch all forklift operators
+ *     responses:
+ *       200:
+ *         description: A list of forklift operators
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   operatorID:
+ *                     type: string
+ *                   name:
+ *                     type: string
+ *                   email:
+ *                     type: string
+ *   post:
+ *     summary: Create a new forklift operator
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               operatorID:
+ *                 type: string
+ *               name:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Operator created successfully
+ *       400:
+ *         description: Invalid input
+ */
+
 // Fetch all operators
 router.get("/", (req, res) => {
   const operators = operatorService.getAllOperators();

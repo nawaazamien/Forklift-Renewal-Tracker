@@ -236,3 +236,11 @@ operatorService.createOperator({ operatorID: "1", name: "John Doe", email: "john
 const operator = operatorService.getOperatorById("1");
 console.log(operator);
 ```
+
+## API Documentation
+
+The API is documented using Swagger. You can access the Swagger UI at:
+[http://localhost:3000/api-docs](http://localhost:3000/api-docs)
+
+### Screenshot of Swagger UI
+![Swagger UI](./docs/screenshots/swagger-ui.png)
