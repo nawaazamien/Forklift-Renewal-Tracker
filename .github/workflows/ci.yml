@@ -58,7 +58,7 @@ jobs:
 
       # Step 5: Upload artifact
       - name: Upload artifact
-        uses: actions/upload-artifact@v3.1.0
+        uses: actions/upload-artifact@v3
         with:
           name: release-artifact
           path: ./build # Adjust this path to your build output directory
