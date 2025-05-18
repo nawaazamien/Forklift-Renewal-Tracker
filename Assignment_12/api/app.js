@@ -18,9 +18,14 @@ app.use("/api/operators", forkliftOperatorRoutes);
 app.use("/api/licenses", licenseRoutes);
 app.use("/api/reminders", reminderRoutes);
 
-// Start the server
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-  console.log(`Swagger Docs available at http://localhost:${PORT}/api-docs`);
-});
+// Export the app for testing
+module.exports = app;
+
+// Start the server only if not in test mode
+if (require.main === module) {
+  const PORT = 3000;
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Swagger Docs available at http://localhost:${PORT}/api-docs`);
+  });
+}

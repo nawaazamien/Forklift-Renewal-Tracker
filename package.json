@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "echo 'Building project...' && mkdir -p build && echo '<html><body><h1>Forklift License Renewal Tracker</h1></body></html>' > build/index.html"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +14,8 @@
     "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
     "babel-jest": "^29.7.0",
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "supertest": "^7.1.1"
   },
   "jest": {
     "transform": {
