@@ -244,3 +244,61 @@ The API is documented using Swagger. You can access the Swagger UI at:
 
 ### Screenshot of Swagger UI
 ![Swagger UI](./docs/screenshots/swagger-ui.png)
+
+## Assignment 13: CI/CD Pipeline and Documentation
+
+### How to Run Tests Locally
+To run tests locally, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/nawaazamien/Forklift-Renewal-Tracker.git
+   cd Forklift-Renewal-Tracker
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the tests:
+   ```bash
+   npm test
+   ```
+
+### How the CI/CD Pipeline Works
+The CI/CD pipeline is implemented using GitHub Actions and consists of the following steps:
+
+1. **Triggering**:
+   - The pipeline is triggered on:
+     - Any `push` to any branch.
+     - Any `pull_request` targeting the `main` branch.
+     - Manual runs using the **Run workflow** button.
+
+2. **Jobs**:
+   - **Test Job**:
+     - Runs on every push or pull request.
+     - Installs dependencies and runs all tests using `npm test`.
+   - **Build and Release Job**:
+     - Runs only when the `test` job passes and the branch is `main`.
+     - Builds the project using `npm run build`.
+     - Uploads the build output as a release artifact.
+
+3. **Artifacts**:
+   - Artifacts are generated only when code is merged into the `main` branch.
+
+4. **Pull Request Workflow**:
+   - Pull requests are blocked from merging if tests fail.
+   - All changes must pass the CI pipeline before being merged into `main`.
+
+---
+
+### Example Pull Request Workflow
+1. A developer creates a new branch and pushes changes.
+2. A pull request is created targeting the `main` branch.
+3. The CI pipeline runs:
+   - If tests fail, the pull request is blocked from merging.
+   - If tests pass, the pull request can be merged.
+4. Once merged, the `build-and-release` job runs to generate and upload the release artifact.
+
+---
