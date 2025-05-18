@@ -302,3 +302,87 @@ The CI/CD pipeline is implemented using GitHub Actions and consists of the follo
 4. Once merged, the `build-and-release` job runs to generate and upload the release artifact.
 
 ---
+## Assignment 14: Peer Review, Onboarding, and Open-Source Collaboration
+
+### Repository Preparation for Open-Source Collaboration
+
+1. **Contribution Guidelines**:
+   - A `CONTRIBUTING.md` file has been added to guide contributors on how to set up the project, follow coding standards, and submit pull requests.
+   - [View CONTRIBUTING.md](./Assignment_14/CONTRIBUTING.md)
+
+2. **Labeled Issues**:
+   - Issues have been labeled to help contributors get started:
+     - **`good-first-issue`**: Beginner-friendly tasks.
+     - **`feature-request`**: Desired enhancements or new features.
+
+3. **Roadmap**:
+   - A `ROADMAP.md` file has been added to outline future features and improvements for the project.
+   - [View ROADMAP.md](./Assignment_14/ROADMAP.md)
+
+4. **License**:
+   - The project is licensed under the MIT License to encourage open-source collaboration.
+   - [View LICENSE](./LICENSE)
+
+---
+
+### How to Contribute
+
+1. **Pick an Issue**:
+   - Browse the [Issues](https://github.com/nawaazamien/Forklift-Renewal-Tracker/issues) page.
+   - Look for issues labeled `good-first-issue` or `feature-request`.
+
+2. **Work on the Issue**:
+   - Fork the repository and create a new branch for your work:
+     ```bash
+     git checkout -b <branch-name>
+     ```
+
+3. **Submit a Pull Request (PR)**:
+   - Push your branch to your fork:
+     ```bash
+     git push origin <branch-name>
+     ```
+   - Open a PR to the `main` branch of this repository.
+   - Include a clear description of your changes and reference the issue number.
+
+4. **Code Review**:
+   - Address any feedback provided during the review process.
+
+---
+
+### Features for Contribution
+
+| Feature                     | Description                                      | Label             |
+|-----------------------------|--------------------------------------------------|-------------------|
+| Fix typos in     | Correct typos and improve documentation.         | `good-first-issue`|
+| Add unit tests              | Write tests for `ReminderService`.               | `good-first-issue`|
+| Redis caching               | Cache operator details using Redis.              | `feature-request` |
+| Email notifications         | Send email reminders for expiring licenses.      | `feature-request` |
+| Dashboard                   | Create a dashboard for license statistics.       | `feature-request` |
+
+---
+
+### Roadmap
+
+The following features are planned for future releases:
+
+1. **Integrate Redis Caching**:
+   - Use Redis to cache frequently accessed data, such as operator details.
+
+2. **Email Notifications**:
+   - Automatically send email reminders for expiring licenses.
+
+3. **Dashboard for License Statistics**:
+   - Create a web-based dashboard to display statistics about licenses and reminders.
+
+4. **Multi-Language Support**:
+   - Add support for multiple languages in the application.
+
+5. **Mobile App Integration**:
+   - Develop a mobile app for operators to manage their licenses and reminders.
+
+---
+
+### License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
