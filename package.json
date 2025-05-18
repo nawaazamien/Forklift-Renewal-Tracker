@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "echo 'Building project...' && mkdir -p build && echo '<html><body><h1>Forklift License Renewal Tracker</h1></body></html>' > build/index.html"
   },
   "keywords": [],
   "author": "",
