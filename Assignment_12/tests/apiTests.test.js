@@ -1,5 +1,19 @@
 const request = require("supertest");
-const app = require("../api/app"); // Adjust the path to your app.js file
+const app = require("../api/app");
+
+let server;
+
+beforeAll(() => {
+  // Start the server before running tests
+  server = app.listen(4000, () => {
+    console.log("Test server running on port 4000");
+  });
+});
+
+afterAll((done) => {
+  // Close the server after tests are done
+  server.close(done);
+});
 
 describe("API Tests", () => {
   test("Should fetch all operators", async () => {
